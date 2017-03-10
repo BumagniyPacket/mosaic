@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-FRAGMENT_SHAPE = 60
+FRAGMENT_SHAPE = 30
 
 
 def fill_color_map(fragment_dir):
