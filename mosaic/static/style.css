@@ -1,0 +1,8 @@
+
+#uploadImg {
+  background: no-repeat center;
+  background-size: contain;
+  display: block;
+  margin: auto;
+  height: 50vh;
+}
