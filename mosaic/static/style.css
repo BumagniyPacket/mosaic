@@ -1,8 +1,57 @@
+/*preloadr*/
+#page-preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 100500;
+}
+
+#page-preloader .spinner {
+  position: absolute;
+  left: 48%;
+  top: 40%;
+}
+
+/*end preloader*/
+
+body {
+  padding-top: 20px;
+}
+
+.form-wrapper {
+  width: 100%;
+}
+
+.form {
+  margin-top: 28vh;
+}
+
+#upload-file-btn {
+  width: 100%;
+}
 
 #uploadImg {
-  background: no-repeat center;
-  background-size: contain;
+  max-height: 65vh;
+  max-width: 90vw;
+}
+
+img.center {
   display: block;
-  margin: auto;
-  height: 50vh;
+  margin: 0 auto;
+  border: 1px solid black;
+  box-shadow: 0 0 10px #1e88e5;
+}
+
+input.valid[type="text"] {
+  border-bottom: 1px solid #1e88e5;
+  box-shadow: 0 1px 0 0 #1e88e5;
+}
+
+p.author {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
 }

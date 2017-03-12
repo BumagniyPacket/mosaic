@@ -2,15 +2,36 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>{{ title }}</title>
+  <title>Mosaic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
+
+<div id="page-preloader">
+  <span class="spinner">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
 
 {% block content %}
 {% endblock %}
 
+<p class="author">Author: <a href="http://github.com/BumagniyPacket">BumagniyPacket</a></p>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>

@@ -13,7 +13,8 @@ from .controller.Image2Mosaic import create_mosaic
 def index():
     def allowed_file(filename):
         return '.' in filename and \
-               filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+               filename.lower().rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+
     if request.method == 'POST':
         if 'file' not in request.files:
             return jsonify(message='No file part')
