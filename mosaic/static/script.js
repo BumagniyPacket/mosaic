@@ -6,12 +6,15 @@ $(window).on('load', function () {
 });
 
 $('.image-wrapper').hide();
+$('.progress').hide();
 
 
 $(function () {
   $('#upload-file-btn').click(function () {
 
     var form_data = new FormData($('#upload-file')[0]);
+
+    $('.progress').show();
 
     $.ajax({
       type: 'POST',
@@ -22,11 +25,14 @@ $(function () {
       processData: false,
       async: false,
       success: function (data) {
-        if (data.message != undefined){
+        if (data.message != undefined) {
           alert(data.message);
         }
-        // $('#result').attr("src", data.result);
         $('#uploadImg').attr("src", data.result);
+        $('.progress').hide();
+      },
+      error: function (data) {
+        Materialize.toast('Возникла ошибка! Попробуйте еще раз.', 4000);
       }
     });
   });
