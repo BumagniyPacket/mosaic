@@ -29,7 +29,7 @@ def normalize_image(image):
         return image
 
 
-def create_mosaic_new(image_path, color_map, fragments_count=60):
+def create_mosaic(image_path, color_map, fragments_count=60):
     def get_image_by_color(color):
         if color not in color_map.keys():
             return get_image_by_color(color + 1)
@@ -70,5 +70,5 @@ if __name__ == '__main__':
     img_path = 'test/cat_small.png'
     colormap = fill_color_map('../../img')
 
-    img = create_mosaic_new(img_path, colormap)
+    img = create_mosaic(img_path, colormap)
 
