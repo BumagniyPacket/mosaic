@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 FRAGMENT_SHAPE = 30
-MINIMAL_SHAPE = FRAGMENT_SHAPE * 3
+MINIMAL_SHAPE = FRAGMENT_SHAPE * 6
 
 
 def fill_color_map(fragment_dir):
@@ -29,7 +29,7 @@ def normalize_image(image):
         return image
 
 
-def create_mosaic(image_path, color_map, fragments_count=60):
+def create_mosaic_new(image_path, color_map, fragments_count=60):
     def get_image_by_color(color):
         if color not in color_map.keys():
             return get_image_by_color(color + 1)
@@ -40,22 +40,23 @@ def create_mosaic(image_path, color_map, fragments_count=60):
     normal_image = normalize_image(image)
     normal_image_w, normal_image_h = normal_image.size
 
+    # TODO:????
     if normal_image_w < normal_image_h:
-        w_fragments = fragments_count
-        h_fragments = int(w_fragments * (normal_image_h / normal_image_w))
+        frag_count_w = fragments_count
+        frag_count_h = int(frag_count_w * (normal_image_h / normal_image_w))
+        step = normal_image_w // fragments_count
     else:
-        h_fragments = fragments_count
-        w_fragments = int(h_fragments * (normal_image_w / normal_image_h))
+        frag_count_h = fragments_count
+        frag_count_w = int(frag_count_h * (normal_image_w / normal_image_h))
+        step = normal_image_h // fragments_count
 
-    step = normal_image_w // fragments_count
-
-    blank_w = w_fragments * FRAGMENT_SHAPE
-    blank_h = h_fragments * FRAGMENT_SHAPE
+    blank_w = frag_count_w * FRAGMENT_SHAPE
+    blank_h = frag_count_h * FRAGMENT_SHAPE
 
     blank = Image.new('L', [blank_w, blank_h])
 
-    for i in range(0, h_fragments):
-        for j in range(0, w_fragments):
+    for i in range(0, frag_count_h):
+        for j in range(0, frag_count_w):
             fragment_color = normal_image.getpixel((j * step, i * step))
             color_image = get_image_by_color(int(fragment_color))
 
@@ -69,5 +70,5 @@ if __name__ == '__main__':
     img_path = 'test/cat_small.png'
     colormap = fill_color_map('../../img')
 
-    img = create_mosaic(img_path, colormap)
-    save(img)
+    img = create_mosaic_new(img_path, colormap)
+
