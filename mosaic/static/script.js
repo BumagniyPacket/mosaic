@@ -12,20 +12,20 @@ $(".progress").hide();
 $(function () {
   $("#upload-file-btn").click(function () {
 
-    var form_data = new FormData($("#upload-file")[0]);
+    var formData = new FormData($("#upload-file")[0]);
 
-    $('.progress').show();
+    $(".progress").show();
 
     $.ajax({
-      type: 'POST',
-      url: '/index',
-      data: form_data,
+      type: "POST",
+      url: "/index",
+      data: formData,
       contentType: false,
       cache: false,
       processData: false,
       async: false,
       success: function (data) {
-        if (data.message != undefined) {
+        if (data.message !== undefined) {
           alert(data.message);
         }
         $("#uploadImg").attr("src", data.result);
