@@ -15,7 +15,7 @@ $(function () {
     var formData = new FormData($("#upload-file")[0]);
 
     $(".progress").show();
-
+    var empty = undefined;
     $.ajax({
       type: "POST",
       url: "/index",
@@ -24,14 +24,14 @@ $(function () {
       cache: false,
       processData: false,
       async: false,
-      success: function (data) {
-        if (data.message !== undefined) {
+      success(data) {
+        if (data.message != empty) {
           alert(data.message);
         }
         $("#uploadImg").attr("src", data.result);
         $(".progress").hide();
       },
-      error: function (data) {
+      error(data) {
         Materialize.toast("Возникла ошибка! Попробуйте еще раз.", 4000);
       }
     });
