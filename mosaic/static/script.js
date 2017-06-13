@@ -11,7 +11,6 @@ $(".progress").hide();
 
 $(function () {
   $("#upload-file-btn").click(function () {
-    var empty = undefined;
     var formData = new FormData($("#upload-file")[0]);
     $(".progress").show();
     $.ajax({
@@ -23,7 +22,7 @@ $(function () {
       processData: false,
       async: false,
       success(data) {
-        if (data.message !== empty) {
+        if (data.message !== undefined) {
           alert(data.message);
         }
         $("#uploadImg").attr("src", data.result);
