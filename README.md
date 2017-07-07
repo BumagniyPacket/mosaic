@@ -21,5 +21,19 @@ pip install -r requirements.txt
 
 ## Run
 ~~~
-python3 main.py
+gunicorn run:app
 ~~~
+
+## How it use
+
+1. Press the "FILE" button
+2. Select an image to create a mosaic
+3. Press the "CREATE MOSAIC" button
+4. Wait for a while
+5. Save your mosaic
+
+## Examples of result
+
+![Guido](https://github.com/BumagniyPacket/mosaic/blob/master/examples/guido.png?raw=true)
+
+![cat](https://github.com/BumagniyPacket/mosaic/blob/master/examples/cat.png?raw=true)
