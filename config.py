@@ -1,5 +1,5 @@
 import os
-from mosaic.controller.Image2Mosaic import fill_color_map
+from mosaic.utils.image_2_mosaic import fill_color_map
 
 
 class Config:
@@ -14,7 +14,6 @@ class Config:
     FRAGMENTS_DIR = os.path.join(BASEDIR, 'img')
     COLOR_MAP = fill_color_map(FRAGMENTS_DIR)
 
-    UPLOADED_PHOTOS_DEST = os.path.join(BASEDIR, 'tmp')
     MAX_CONTENT_LENGTH = 10 * 1024 * 1024
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
