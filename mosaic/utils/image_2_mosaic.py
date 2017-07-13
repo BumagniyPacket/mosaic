@@ -71,4 +71,3 @@ if __name__ == '__main__':
     colormap = fill_color_map('../../img')
 
     img = create_mosaic(img_path, colormap)
-
